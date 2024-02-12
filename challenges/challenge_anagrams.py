@@ -1,5 +1,5 @@
-def merge_sort(string):
-    """Ordena a string usando o algoritmo merge sort."""
+def merge_sort_string(string):
+    """Sort a string using merge sort algorithm."""
     if isinstance(string, str):
         string = list(string)
     if len(string) > 1:
@@ -7,8 +7,8 @@ def merge_sort(string):
         left_half = string[:middle]
         right_half = string[middle:]
 
-        merge_sort(left_half)
-        merge_sort(right_half)
+        merge_sort_string(left_half)
+        merge_sort_string(right_half)
 
         merge(string, left_half, right_half)
     return "".join(string)
@@ -38,8 +38,17 @@ def merge(string, left_half, right_half):
 
 
 def is_anagram(first_string, second_string):
-    """Faça o código aqui."""
-    raise NotImplementedError
+    """Verify if two strings are anagrams."""
+    first_string = first_string.lower()
+    second_string = second_string.lower()
+    return (
+        merge_sort_string(first_string),
+        merge_sort_string(second_string),
+        merge_sort_string(first_string) == merge_sort_string(second_string),
+    )
 
 
-print(merge_sort("amor"))
+if __name__ == "__main__":
+    print(is_anagram("amor", "RomA"))
+    print(is_anagram("ALEgria", "alergia"))
+    print(is_anagram("f", "F"))
