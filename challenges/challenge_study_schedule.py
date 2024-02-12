@@ -1,21 +1,12 @@
-def validate_tuple(tup):
-    return (
-        isinstance(tup, tuple)
-        and len(tup) == 2
-        and isinstance(tup[0], int)
-        and isinstance(tup[1], int)
-    )
-
-
 def study_schedule(permanence_period, target_time=None):
     if target_time is None:
         return None
     count = 0
-    for period in permanence_period:
-        if not validate_tuple(period):
+    for start, end in permanence_period:
+        if not isinstance(start, int) or not isinstance(end, int):
             return None
 
-        if target_time in range(period[0], period[1] + 1):
+        if target_time in range(start, end + 1):
             count += 1
     return count
 
