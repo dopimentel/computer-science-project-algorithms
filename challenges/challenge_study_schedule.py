@@ -2,7 +2,8 @@ def validate_tuple(tup):
     return (
         isinstance(tup, tuple)
         and len(tup) == 2
-        and all(isinstance(i, int) for i in tup)
+        and isinstance(tup[0], int)
+        and isinstance(tup[1], int)
     )
 
 
