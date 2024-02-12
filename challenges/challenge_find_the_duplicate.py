@@ -1,7 +1,5 @@
 def find_duplicate(nums):
-    seen = set()
-    for num in nums:
-        if num in seen:
-            return num
-        seen.add(num)
-    return False
+    nums.sort()
+    for i in range(len(nums) - 1):
+        if nums[i] == nums[i + 1]:
+            return nums[i]
