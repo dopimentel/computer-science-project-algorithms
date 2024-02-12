@@ -1,3 +1,7 @@
 def find_duplicate(nums):
-    """Faça o código aqui."""
-    raise NotImplementedError
+    seen = set()
+    for num in nums:
+        if num in seen:
+            return num
+        seen.add(num)
+    return False
