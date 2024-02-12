@@ -39,6 +39,12 @@ def merge(string, left_half, right_half):
 
 def is_anagram(first_string, second_string):
     """Verify if two strings are anagrams."""
+    if not first_string or not second_string:
+        return (
+            merge_sort_string(first_string),
+            merge_sort_string(second_string),
+            False,
+        )
     first_string = first_string.lower()
     second_string = second_string.lower()
     return (
